@@ -11,17 +11,39 @@
         <link rel="stylesheet" href="css/filter.css">
 <link rel="stylesheet" href="css/nouislider.min.css">
         <style>
-        html, body, #map {
+        html, body
+        {
+
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+
+        } #map {
             width: 100%;
             height: 100%;
             padding: 0;
             margin: 0;
         }
         </style>
-        <title>15-minute concept in Addis Ababa - Ethiopia</title>
+        <title>15-minute city concept in Addis Ababa - Ethiopia</title>
     </head>
     <body>
+
+        <div class="header">
+            <img src="images/esa.png" height="70px">
+            <h2>15-minute city concept - Addis Ababa - Ethiopia, web map</h2>
+
+
+        </div>
+       
         <div id="map">
+        </div>
+
+        <div class="footer">
+            <p>This web map has been developed as a concept for the cities and climate program which is being implemented by the open mapping hub - Eastern and Southern Africa - Humanitarian OpenStreetMap Team. Data used in this concept is from OpenStreetMap. Open tools used to generate the web map are QGIS, qgis2web and leaflet.</p>
+            <img src="images/hot.png" height="70px">
+
         </div>
         <script src="js/qgis2web_expressions.js"></script>
         <script src="js/leaflet.js"></script><script src="js/L.Control.Locate.min.js"></script>
@@ -83,15 +105,15 @@
                         <td>' + (feature.properties['road completeness'] !== null ? autolinker.link(feature.properties['road completeness'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">health access(within 15 minutes)%</th>\
+                        <th scope="row">% of buildings within 15 minutes access to health facilities</th>\
                         <td>' + (feature.properties['health access(within 15 minutes)%'] !== null ? autolinker.link(feature.properties['health access(within 15 minutes)%'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">education access(within 15 minutes)%</th>\
+                        <th scope="row">% of buildings within 15 minutes access to education facilities</th>\
                         <td>' + (feature.properties['education access(within 15 minutes)%'] !== null ? autolinker.link(feature.properties['education access(within 15 minutes)%'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">finance access(within 15 minutes)%</th>\
+                        <th scope="row">% of buildings within 15 minutes access to financial services</th>\
                         <td>' + (feature.properties['finance access(within 15 minutes)%'] !== null ? autolinker.link(feature.properties['finance access(within 15 minutes)%'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
@@ -502,7 +524,7 @@
                 case 'atm':
                     return {
                 pane: 'pane_financialservices_6',
-                shape: 'diamond',
+                //shape: 'diamond',
                 radius: 6.0,
                 opacity: 1,
                 color: 'rgba(204,255,51,1.0)',
@@ -519,7 +541,7 @@
                 case 'bank':
                     return {
                 pane: 'pane_financialservices_6',
-                shape: 'diamond',
+                //shape: 'diamond',
                 radius: 6.0,
                 opacity: 1,
                 color: 'rgba(51,160,44,1.0)',
@@ -536,7 +558,7 @@
                 case 'bureau_de_change':
                     return {
                 pane: 'pane_financialservices_6',
-                shape: 'diamond',
+                //shape: 'diamond',
                 radius: 6.0,
                 opacity: 1,
                 color: 'rgba(29,211,176,1.0)',
@@ -754,11 +776,17 @@
                 abstract.show = function () {
                     this._div.classList.remove("abstract");
                     this._div.classList.add("abstractUncollapsed");
-                    this._div.innerHTML = 'The 15-minute city is a visionary urban concept that aims to create self-sufficient neighborhoods where residents can meet most of their daily needs within a 15-minute walk or bike ride from their homes. This model envisions mixed-use urban planning, integrating residential, commercial, and recreational spaces to reduce the need for extensive commuting. By fostering local economies, promoting sustainability, and enhancing community connectivity, the 15-minute city seeks to improve quality of life, reduce carbon emissions, and create vibrant, resilient urban environments. This innovative approach envisions cities as interconnected hubs, enhancing accessibility and fostering a sense of community while addressing environmental and social challenges. ';
+                    this._div.innerHTML = 'The 15-minute city is a visionary urban concept that aims to create self-sufficient neighborhoods where residents can meet most of their daily needs within a 15-minute walk or bike ride from their homes. The 15-minute city concept seeks to improve quality of life, reduce carbon emissions, and create vibrant, resilient urban environments. This innovative approach envisions cities as interconnected hubs, enhancing accessibility and fostering a sense of community while addressing environmental and social challenges. This web map showcases the 15-minute concept in Addis Ababa, Ethiopia. Which of the surburbs in Addis Ababa meetds the concept"s criteria? ';
             };
             abstract.addTo(map);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'health facilities<br /><table><tr><td style="text-align: center;"><img src="legend/healthfacilities_7_clinic0.png" /></td><td>clinic</td></tr><tr><td style="text-align: center;"><img src="legend/healthfacilities_7_dentist1.png" /></td><td>dentist</td></tr><tr><td style="text-align: center;"><img src="legend/healthfacilities_7_doctors2.png" /></td><td>doctors</td></tr><tr><td style="text-align: center;"><img src="legend/healthfacilities_7_healthpost3.png" /></td><td>health_post</td></tr><tr><td style="text-align: center;"><img src="legend/healthfacilities_7_hospital4.png" /></td><td>hospital</td></tr><tr><td style="text-align: center;"><img src="legend/healthfacilities_7_nursinghome5.png" /></td><td>nursing_home</td></tr><tr><td style="text-align: center;"><img src="legend/healthfacilities_7_pharmacy6.png" /></td><td>pharmacy</td></tr></table>': layer_healthfacilities_7,'financial services<br /><table><tr><td style="text-align: center;"><img src="legend/financialservices_6_atm0.png" /></td><td>atm</td></tr><tr><td style="text-align: center;"><img src="legend/financialservices_6_bank1.png" /></td><td>bank</td></tr><tr><td style="text-align: center;"><img src="legend/financialservices_6_bureaudechange2.png" /></td><td>bureau_de_change</td></tr></table>': layer_financialservices_6,'education facilities<br /><table><tr><td style="text-align: center;"><img src="legend/educationfacilities_5_college0.png" /></td><td>college</td></tr><tr><td style="text-align: center;"><img src="legend/educationfacilities_5_kindergarten1.png" /></td><td>kindergarten</td></tr><tr><td style="text-align: center;"><img src="legend/educationfacilities_5_library2.png" /></td><td>library</td></tr><tr><td style="text-align: center;"><img src="legend/educationfacilities_5_school3.png" /></td><td>school</td></tr><tr><td style="text-align: center;"><img src="legend/educationfacilities_5_university4.png" /></td><td>university</td></tr></table>': layer_educationfacilities_5,'buildings accessibility to health facilities in minutes<br /><table><tr><td style="text-align: center;"><img src="legend/buildingsaccessibilitytohealthfacilitiesinminutes_4_15to30minutes0.png" /></td><td>15 to 30 minutes</td></tr><tr><td style="text-align: center;"><img src="legend/buildingsaccessibilitytohealthfacilitiesinminutes_4_30to60minutes1.png" /></td><td>30 to 60 minutes</td></tr><tr><td style="text-align: center;"><img src="legend/buildingsaccessibilitytohealthfacilitiesinminutes_4_within15minutes2.png" /></td><td>within 15 minutes</td></tr></table>': layer_buildingsaccessibilitytohealthfacilitiesinminutes_4,'buildings accessibility to education services in minutes<br /><table><tr><td style="text-align: center;"><img src="legend/buildingsaccessibilitytoeducationservicesinminutes_3_15to30minutes0.png" /></td><td>15 to 30 minutes</td></tr><tr><td style="text-align: center;"><img src="legend/buildingsaccessibilitytoeducationservicesinminutes_3_30to60minutes1.png" /></td><td>30 to 60 minutes</td></tr><tr><td style="text-align: center;"><img src="legend/buildingsaccessibilitytoeducationservicesinminutes_3_within15minutes2.png" /></td><td>within 15 minutes</td></tr></table>': layer_buildingsaccessibilitytoeducationservicesinminutes_3,'buildings accessibility to financial services in minutes<br /><table><tr><td style="text-align: center;"><img src="legend/buildingsaccessibilitytofinancialservicesinminutes_2_15to30minutes0.png" /></td><td>15 to 30 minutes</td></tr><tr><td style="text-align: center;"><img src="legend/buildingsaccessibilitytofinancialservicesinminutes_2_30to60minutes1.png" /></td><td>30 to 60 minutes</td></tr><tr><td style="text-align: center;"><img src="legend/buildingsaccessibilitytofinancialservicesinminutes_2_within15minutes2.png" /></td><td>within 15 minutes</td></tr></table>': layer_buildingsaccessibilitytofinancialservicesinminutes_2,'<img src="legend/suburbsinaddisababa_1.png" /> suburbs in addis ababa': layer_suburbsinaddisababa_1,"CartoDB Positron": layer_CartoDBPositron_0,}).addTo(map);
+        L.control.layers(baseMaps,{'Health facilities<br /><table><tr><td style="text-align: center;"><img src="legend/healthfacilities_7_clinic0.png" /></td><td>clinic</td></tr><tr><td style="text-align: center;"><img src="legend/healthfacilities_7_dentist1.png" /></td><td>dentist</td></tr><tr><td style="text-align: center;"><img src="legend/healthfacilities_7_doctors2.png" /></td><td>doctors</td></tr><tr><td style="text-align: center;"><img src="legend/healthfacilities_7_healthpost3.png" /></td><td>health_post</td></tr><tr><td style="text-align: center;"><img src="legend/healthfacilities_7_hospital4.png" /></td><td>hospital</td></tr><tr><td style="text-align: center;"><img src="legend/healthfacilities_7_nursinghome5.png" /></td><td>nursing_home</td></tr><tr><td style="text-align: center;"><img src="legend/healthfacilities_7_pharmacy6.png" /></td><td>pharmacy</td></tr></table>': layer_healthfacilities_7,
+        'Financial services<br /><table><tr><td style="text-align: center;"><img src="legend/financialservices_6_atm0.png" /></td><td>atm</td></tr><tr><td style="text-align: center;"><img src="legend/financialservices_6_bank1.png" /></td><td>bank</td></tr><tr><td style="text-align: center;"><img src="legend/financialservices_6_bureaudechange2.png" /></td><td>bureau_de_change</td></tr></table>': layer_financialservices_6,
+        'Education facilities<br /><table><tr><td style="text-align: center;"><img src="legend/educationfacilities_5_college0.png" /></td><td>college</td></tr><tr><td style="text-align: center;"><img src="legend/educationfacilities_5_kindergarten1.png" /></td><td>kindergarten</td></tr><tr><td style="text-align: center;"><img src="legend/educationfacilities_5_library2.png" /></td><td>library</td></tr><tr><td style="text-align: center;"><img src="legend/educationfacilities_5_school3.png" /></td><td>school</td></tr><tr><td style="text-align: center;"><img src="legend/educationfacilities_5_university4.png" /></td><td>university</td></tr></table>': layer_educationfacilities_5,
+        'Buildings accessibility to health facilities in minutes<br /><table><tr><td style="text-align: center;"><img src="legend/buildingsaccessibilitytohealthfacilitiesinminutes_4_15to30minutes0.png" /></td><td>15 to 30 minutes</td></tr><tr><td style="text-align: center;"><img src="legend/buildingsaccessibilitytohealthfacilitiesinminutes_4_30to60minutes1.png" /></td><td>30 to 60 minutes</td></tr><tr><td style="text-align: center;"><img src="legend/buildingsaccessibilitytohealthfacilitiesinminutes_4_within15minutes2.png" /></td><td>within 15 minutes</td></tr></table>': layer_buildingsaccessibilitytohealthfacilitiesinminutes_4,
+        'Buildings accessibility to education services in minutes<br /><table><tr><td style="text-align: center;"><img src="legend/buildingsaccessibilitytoeducationservicesinminutes_3_15to30minutes0.png" /></td><td>15 to 30 minutes</td></tr><tr><td style="text-align: center;"><img src="legend/buildingsaccessibilitytoeducationservicesinminutes_3_30to60minutes1.png" /></td><td>30 to 60 minutes</td></tr><tr><td style="text-align: center;"><img src="legend/buildingsaccessibilitytoeducationservicesinminutes_3_within15minutes2.png" /></td><td>within 15 minutes</td></tr></table>': layer_buildingsaccessibilitytoeducationservicesinminutes_3,
+        'Buildings accessibility to financial services in minutes<br /><table><tr><td style="text-align: center;"><img src="legend/buildingsaccessibilitytofinancialservicesinminutes_2_15to30minutes0.png" /></td><td>15 to 30 minutes</td></tr><tr><td style="text-align: center;"><img src="legend/buildingsaccessibilitytofinancialservicesinminutes_2_30to60minutes1.png" /></td><td>30 to 60 minutes</td></tr><tr><td style="text-align: center;"><img src="legend/buildingsaccessibilitytofinancialservicesinminutes_2_within15minutes2.png" /></td><td>within 15 minutes</td></tr></table>': layer_buildingsaccessibilitytofinancialservicesinminutes_2,
+        '<img src="legend/suburbsinaddisababa_1.png" /> suburbs in addis ababa': layer_suburbsinaddisababa_1,"CartoDB Positron": layer_CartoDBPositron_0,}).addTo(map);
         setBounds();
         var mapDiv = document.getElementById('map');
         var row = document.createElement('div');
@@ -871,28 +899,30 @@
         }
             document.getElementById("menu").appendChild(
                 document.createElement("div"));
+
             var div_traveltimemins = document.createElement('div');
             div_traveltimemins.id = "div_traveltimemins";
             div_traveltimemins.className= "filterselect";
+            
             document.getElementById("menu").appendChild(div_traveltimemins);
             sel_traveltimemins = document.createElement('select');
-            sel_traveltimemins.multiple = true;
+            sel_traveltimemins.multiple = false;
             sel_traveltimemins.size = 4;
             sel_traveltimemins.id = "sel_traveltimemins";
             var traveltimemins_options_str = "<option value='' unselected></option>";
             sel_traveltimemins.onchange = function(){filterFunc()};
-            traveltimemins_options_str  += '<option value="NULL">NULL</option>';
+            traveltimemins_options_str  += '<option value="within 15 minutes">within 15 minutes</option>';
+
             traveltimemins_options_str  += '<option value="15 to 30 minutes">15 to 30 minutes</option>';
             traveltimemins_options_str  += '<option value="30 to 60 minutes">30 to 60 minutes</option>';
-            traveltimemins_options_str  += '<option value="within 15 minutes">within 15 minutes</option>';
             sel_traveltimemins.innerHTML = traveltimemins_options_str;
             div_traveltimemins.appendChild(sel_traveltimemins);
             var lab_traveltimemins = document.createElement('div');
-            lab_traveltimemins.innerHTML = 'travel time(mins)';
+            lab_traveltimemins.innerHTML = '<b>Select: Travel times (minutes) to facility/services<b/>';
             lab_traveltimemins.className = 'filterlabel';
             div_traveltimemins.appendChild(lab_traveltimemins);
             var reset_traveltimemins = document.createElement('div');
-            reset_traveltimemins.innerHTML = 'clear filter';
+            reset_traveltimemins.innerHTML = 'clear selected travel times';
             reset_traveltimemins.className = 'filterlabel';
             reset_traveltimemins.onclick = function() {
                 var options = document.getElementById("sel_traveltimemins").options;
@@ -901,6 +931,7 @@
                 }
                 filterFunc();
             };
+            
             div_traveltimemins.appendChild(reset_traveltimemins);
             document.getElementById("menu").appendChild(
                 document.createElement("div"));
@@ -914,29 +945,32 @@
             sel_amenity.id = "sel_amenity";
             var amenity_options_str = "<option value='' unselected></option>";
             sel_amenity.onchange = function(){filterFunc()};
-            amenity_options_str  += '<option value="atm">atm</option>';
-            amenity_options_str  += '<option value="bank">bank</option>';
-            amenity_options_str  += '<option value="bureau_de_change">bureau_de_change</option>';
-            amenity_options_str  += '<option value="clinic">clinic</option>';
-            amenity_options_str  += '<option value="college">college</option>';
-            amenity_options_str  += '<option value="dentist">dentist</option>';
-            amenity_options_str  += '<option value="doctors">doctors</option>';
-            amenity_options_str  += '<option value="health_post">health_post</option>';
-            amenity_options_str  += '<option value="hospital">hospital</option>';
-            amenity_options_str  += '<option value="kindergarten">kindergarten</option>';
-            amenity_options_str  += '<option value="library">library</option>';
-            amenity_options_str  += '<option value="nursing_home">nursing_home</option>';
-            amenity_options_str  += '<option value="pharmacy">pharmacy</option>';
-            amenity_options_str  += '<option value="school">school</option>';
-            amenity_options_str  += '<option value="university">university</option>';
+            amenity_options_str  += '<option value="atm">financial service: ATM</option>';
+            amenity_options_str  += '<option value="bank">financial service: bank</option>';
+            amenity_options_str  += '<option value="bureau_de_change">financial service: bureau de change</option>';
+            amenity_options_str  += '<option value="clinic">health facility: clinic</option>';
+            amenity_options_str  += '<option value="dentist">health facility: dentist</option>';
+            amenity_options_str  += '<option value="doctors">health facility: doctors</option>';
+            amenity_options_str  += '<option value="health_post">health facility: health post</option>';
+            amenity_options_str  += '<option value="nursing_home">health facility: nursing home</option>';
+            amenity_options_str  += '<option value="pharmacy">health facility: pharmacy</option>';
+            amenity_options_str  += '<option value="hospital">health facility: hospital</option>';
+            amenity_options_str  += '<option value="school">education facility: school</option>';
+
+            amenity_options_str  += '<option value="college">education facility: college</option>';
+
+            amenity_options_str  += '<option value="kindergarten">education facility: kindergarten</option>';
+            amenity_options_str  += '<option value="library">education facility: library</option>';
+          
+            amenity_options_str  += '<option value="university">education facility: university</option>';
             sel_amenity.innerHTML = amenity_options_str;
             div_amenity.appendChild(sel_amenity);
             var lab_amenity = document.createElement('div');
-            lab_amenity.innerHTML = 'amenity';
+            lab_amenity.innerHTML = '<b>Select: Amenity categories<b/>';
             lab_amenity.className = 'filterlabel';
             div_amenity.appendChild(lab_amenity);
             var reset_amenity = document.createElement('div');
-            reset_amenity.innerHTML = 'clear filter';
+            reset_amenity.innerHTML = 'clear selected amenity categories';
             reset_amenity.className = 'filterlabel';
             reset_amenity.onclick = function() {
                 var options = document.getElementById("sel_amenity").options;
@@ -944,6 +978,7 @@
                     options[i].selected = false;
                 }
                 filterFunc();
+
             };
             div_amenity.appendChild(reset_amenity);
             document.getElementById("menu").appendChild(
@@ -958,7 +993,6 @@
             sel_suburb.id = "sel_suburb";
             var suburb_options_str = "<option value='' unselected></option>";
             sel_suburb.onchange = function(){filterFunc()};
-            suburb_options_str  += '<option value="NULL">NULL</option>';
             suburb_options_str  += '<option value="Addis Ketema">Addis Ketema</option>';
             suburb_options_str  += '<option value="Akaki Kaliti">Akaki Kaliti</option>';
             suburb_options_str  += '<option value="Arada">Arada</option>';
@@ -972,11 +1006,11 @@
             sel_suburb.innerHTML = suburb_options_str;
             div_suburb.appendChild(sel_suburb);
             var lab_suburb = document.createElement('div');
-            lab_suburb.innerHTML = 'suburb';
+            lab_suburb.innerHTML = '<b>Select: Suburb in Addis Ababa<b/>';
             lab_suburb.className = 'filterlabel';
             div_suburb.appendChild(lab_suburb);
             var reset_suburb = document.createElement('div');
-            reset_suburb.innerHTML = 'clear filter';
+            reset_suburb.innerHTML = 'clear selected suburb';
             reset_suburb.className = 'filterlabel';
             reset_suburb.onclick = function() {
                 var options = document.getElementById("sel_suburb").options;
@@ -985,6 +1019,7 @@
                 }
                 filterFunc();
             };
+
             div_suburb.appendChild(reset_suburb);
             document.getElementById("menu").appendChild(
                 document.createElement("div"));
@@ -1004,11 +1039,11 @@
             sel_accessamenity.innerHTML = accessamenity_options_str;
             div_accessamenity.appendChild(sel_accessamenity);
             var lab_accessamenity = document.createElement('div');
-            lab_accessamenity.innerHTML = 'access amenity';
+            lab_accessamenity.innerHTML = '<b>Select: Access amenity<b/>';
             lab_accessamenity.className = 'filterlabel';
             div_accessamenity.appendChild(lab_accessamenity);
             var reset_accessamenity = document.createElement('div');
-            reset_accessamenity.innerHTML = 'clear filter';
+            reset_accessamenity.innerHTML = 'clear selected access amenity';
             reset_accessamenity.className = 'filterlabel';
             reset_accessamenity.onclick = function() {
                 var options = document.getElementById("sel_accessamenity").options;
@@ -1016,6 +1051,7 @@
                     options[i].selected = false;
                 }
                 filterFunc();
+
             };
             div_accessamenity.appendChild(reset_accessamenity);
         resetLabels([layer_educationfacilities_5,layer_financialservices_6,layer_healthfacilities_7]);
