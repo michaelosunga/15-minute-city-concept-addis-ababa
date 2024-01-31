@@ -32,7 +32,8 @@
 
         <div class="header">
             <img src="images/esa.png" height="70px">
-            <h2>15-minute city concept - Addis Ababa - Ethiopia, web map</h2>
+            <h3>15-minute city concept web map - Addis Ababa:Ethiopia</h3>
+
 
 
         </div>
@@ -41,7 +42,7 @@
         </div>
 
         <div class="footer">
-            <p>This web map has been developed as a concept for the cities and climate program which is being implemented by the open mapping hub - Eastern and Southern Africa - Humanitarian OpenStreetMap Team. Data used in this concept is from OpenStreetMap. Open tools used to generate the web map are QGIS, qgis2web and leaflet.</p>
+            <p>This web map has been developed as a concept for the cities and climate program which is being implemented by the Humanitarian OpenStreetMap Team: Open mapping hub - Eastern and Southern Africa. Data used in this concept is from OpenStreetMap. Open tools used to generate the web map are QGIS, qgis2web and leaflet.</p>
             <img src="images/hot.png" height="70px">
 
         </div>
@@ -755,7 +756,7 @@
                 return this._div;
             };
             title.update = function () {
-                this._div.innerHTML = '<h2>15-minute concept in Addis Ababa - Ethiopia</h2>';
+                this._div.innerHTML = '<h5>Check which suburb in Addis Ababa has access to essential services within a 15-minute walk</h5>';
             };
             title.addTo(map);
             var abstract = new L.Control({'position':'topright'});
@@ -776,7 +777,7 @@
                 abstract.show = function () {
                     this._div.classList.remove("abstract");
                     this._div.classList.add("abstractUncollapsed");
-                    this._div.innerHTML = 'The 15-minute city is a visionary urban concept that aims to create self-sufficient neighborhoods where residents can meet most of their daily needs within a 15-minute walk or bike ride from their homes. The 15-minute city concept seeks to improve quality of life, reduce carbon emissions, and create vibrant, resilient urban environments. This innovative approach envisions cities as interconnected hubs, enhancing accessibility and fostering a sense of community while addressing environmental and social challenges. This web map showcases the 15-minute concept in Addis Ababa, Ethiopia. Which of the surburbs in Addis Ababa meetds the concept"s criteria? ';
+                    this._div.innerHTML = 'The 15-minute city is a visionary urban concept that aims to create self-sufficient neighborhoods where residents can meet most of their daily needs within a 15-minute walk or bike ride from their homes. The 15-minute city concept seeks to improve quality of life, reduce carbon emissions, and create vibrant, resilient urban environments. This innovative approach envisions cities as interconnected hubs, enhancing accessibility and fostering a sense of community while addressing environmental and social challenges. This web map showcases the 15-minute concept in Addis Ababa, Ethiopia using open data and tools. Which of the surburbs in Addis Ababa meetds the concept"s criteria? ';
             };
             abstract.addTo(map);
         var baseMaps = {};
